@@ -1,0 +1,5 @@
+#!/bin/bash
+
+output_file=config.make
+
+echo "# ${output_file} generate by configure script" > $output_file
