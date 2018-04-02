@@ -3,3 +3,6 @@
 bin/*
 .vscode
 config.make
+assets/*
+.DS_Store
+build

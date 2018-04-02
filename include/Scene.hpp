@@ -1,0 +1,22 @@
+#ifndef __SCHENE_H__
+#define __SCHENE_H__
+
+#include <vector>
+#include <SDL2/SDL.h>
+
+#include "Object.hpp"
+
+namespace Engine {
+    class Scene {
+    public:
+        Scene(SDL_Renderer* renderer);
+        ~Scene();
+        void addObject(Object* _object);
+        void Render();
+    private:
+        SDL_Renderer* _renderer;
+        std::vector<Object*> _objects;
+    };
+};
+
+#endif
