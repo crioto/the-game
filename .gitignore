@@ -6,3 +6,9 @@ config.make
 assets/*
 .DS_Store
 build
+win/Debug
+win/Release
+win.vcxproj.filters
+win.vcxproj.user
+win/.vs
+.vs

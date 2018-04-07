@@ -5,8 +5,13 @@
 #include <string>
 #include <vector>
 
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32)
+#include "SDL.h"
+#include "SDL_ttf.h"
+#else
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_ttf.h"
+#endif
 
 #include "EventBase.hpp"
 #include "ConsoleCommand.hpp"
