@@ -4,7 +4,11 @@
 #include <cmath>
 #include <iostream>
 
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32)
+#include "SDL.h"
+#else
 #include "SDL2/SDL.h"
+#endif
 
 #include "ConsoleCommand.hpp"
 

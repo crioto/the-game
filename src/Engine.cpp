@@ -1,24 +1,21 @@
 #include "Engine.hpp"
 
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32)
+#include "SDL.h"
+#include "SDL_ttf.h"
+#else
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_ttf.h"
+#endif
 
 namespace Engine {
 
-int roll(int min, int max)
-{
-    srand(time(NULL));
-
-return (rand() % 3) + 1;
-
-//    // x is in [0,1[
-//    double x = rand()/static_cast<double>(RAND_MAX+1); 
-
-//    // [0,1[ * (max - min) + min is in [min,max[
-//    int that = min + static_cast<int>( x * (max - min) );
-
-//    return that;
-}
+//int roll(int min, int max)
+//{
+//    srand(time(NULL));
+//
+//	return (rand() % 3) + 1;
+//}
 
 Engine::Engine(std::vector<std::string> args)
 {
