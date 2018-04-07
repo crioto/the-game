@@ -86,7 +86,7 @@ int Engine::run()
     Level* level = new Level("0");
     console->subscribe(level);
 
-    Seed* seed = new Seed(0);
+    Seed* seed = new Seed(_renderer, 0);
     console->subscribe(seed);
 
     Scene* scene = new Scene(_renderer);
@@ -198,6 +198,7 @@ int Engine::run()
         SDL_RenderClear(_renderer);
         scene->Render();
         building->render();
+        seed->render();
         console->Render();
         SDL_RenderPresent(_renderer);
     }

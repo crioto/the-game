@@ -146,10 +146,21 @@ namespace Engine
     void Seed::render()
     {
         if (!_debug) return;
+        if (_renderer == NULL) return;
+        if (_seed == 0) _seed = 255;
 
-        for (int x = 0; x < 255; x++) {
-            for (int y = 0 ; y < 255; y++) {
-                
+        double z = (double)(1/_seed);
+
+        int fieldSize = 255;
+        int scale = 4;
+
+        for (int x = 0; x < fieldSize; x++) {
+            for (int y = 0 ; y < fieldSize; y++) {
+                z = perlin((double)x, (double)y, z);
+                SDL_SetRenderDrawColor(_renderer, convert(z), 0, 0, 255);
+                SDL_Rect r{x * scale, y * scale, scale, scale};
+                SDL_RenderFillRect(_renderer, &r);
+                //std::printf("%d ", convert(z));
             }
         }
     }
@@ -159,4 +170,9 @@ namespace Engine
         if (_debug) _debug = false;
         else _debug = true;
     }
+
+    int Seed::convert(double v)
+    {
+        return (v >= 1.0 ? 255 : (v <= 0.0 ? 0 : (int)floor(v * 256.0)));
+    } 
 }

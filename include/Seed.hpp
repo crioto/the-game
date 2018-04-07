@@ -28,6 +28,7 @@ namespace Engine
         double lerp(double a, double b, double x);
         void render();
         void toggleDebug();
+        int convert(double v);
         private:
         SDL_Renderer* _renderer;
         bool _debug;
