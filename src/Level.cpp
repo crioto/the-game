@@ -30,7 +30,7 @@ namespace Engine
 
     double Level::perlin(double x, double y, double z)
     {
-
+		return 0.0;
     }
 
 }
